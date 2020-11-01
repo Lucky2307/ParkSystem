@@ -39,15 +39,11 @@ def edit_complaint(request, complaint_id):
     context = {
         'form': form,
         'type': 'edit',
+        'id': complaint_id,
     }
     return render(request, 'complaint/message.html', context=context)
 
 def delete_complaint(request, complaint_id):
-    cur_complaint = complaint.objects.get(pk=complaint_id)
-    if request.method == 'POST':
-        cur_complaint.delete()
-        return HttpResponseRedirect(reverse('complaints'))
-    context = {
-        'complaint': cur_complaint
-    }
-    return render(request, 'complaint/complaints.html', context=context)
+    cur_complaint = complaintMessage.objects.get(pk=complaint_id)
+    cur_complaint.delete()
+    return HttpResponseRedirect(reverse('complaints'))
