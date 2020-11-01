@@ -4,7 +4,7 @@
 {% if type != 'edit' %}
 <h1>Complaint form</h1>
 {% else %}
-<h1>Edit an author</h1>
+<h1>Edit a submitted complaint</h1>
 {% endif %}
   {% load crispy_forms_tags %}
   <form action="" method="post">
@@ -15,6 +15,6 @@
       {% else %}
       <input type="submit" value="Update" class="btn btn-primary"/>
       {% endif %}
-      <a href="{% url 'index' %}" class="btn btn-danger">Cancel</a>
+      <a href="{% url 'complaints' %}" class="btn btn-danger">Cancel</a>
   </form>
 {% endblock %}
