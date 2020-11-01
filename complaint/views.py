@@ -1,17 +1,15 @@
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from .forms import complaintMessageForm
 
 # Create your views here.
-
-def index(request):
-    return render(request, 'complaint/foo.html')
 
 def confirmMessage(request):
     if request.method == 'POST':
         form = complaintMessageForm(request.POST)
         if form.is_valid():
-            return HttpResponseRedirect('POST success')
+            form.save()
+            return redirect('success')
     else:
         form = complaintMessageForm()
     

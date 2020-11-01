@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Form submitted successfully.</h1>
+<h3 style>You will be redirected in </h3> <h3 id='seconds'>5</h3>
+<style>
+    h3 {
+    display: inline;
+}
+</style>
+<script>
+    setTimeout(function(){
+    window.location.href="{% url 'index' %}";
+    }, 5000);
+
+    var seconds = 5;
+    var el = document.getElementById('seconds');
+
+    function incrementSeconds() {
+        seconds -= 1;
+        el.innerText = seconds;
+    }
+    var cancel = setInterval(incrementSeconds, 1000);
+</script>
+{% endblock %}
