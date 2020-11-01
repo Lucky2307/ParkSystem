@@ -1,4 +1,4 @@
-{% extends "complaint/base_generic.html" %}
+{% extends "base_generic.html" %}
 
 {% block content %}
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
@@ -8,8 +8,8 @@
 <h1 class="h2">Weekly Report</h1>
 <p>The system has accounted the following:</p>
 <ul>
-    <li><strong>Complaints:</strong> 1769</li>
-    <li><strong>Members:</strong> 1875</li>
+    <li><strong>Complaints:</strong> {{complaintTotalCount}}</li>
+    <li><strong>Members:</strong> {{memberCount}}</li>
 </ul>
 <p>These are the complaints we've received for the last 7 days:</p>
 
@@ -34,7 +34,7 @@
     dateLabel[order] = currentDate
   }
 
-  var complaints = [67, 74, 76, 88, 59, 81, 64];
+  var complaints = {{complaintCount}};
   var ctx = document.getElementById("myChart");
   var myChart = new Chart(ctx, {
     type: 'line',
@@ -53,7 +53,8 @@
       scales: {
         yAxes: [{
           ticks: {
-            beginAtZero: false
+            beginAtZero: true,
+            stepSize: 1
           }
         }]
       },
