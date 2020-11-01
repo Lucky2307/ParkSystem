@@ -19,7 +19,7 @@ def confirmMessage(request):
     return render(request, 'complaint/message.html', {'form':form})
 
 def list_complaints(request):
-    complaints = complaintMessage.objects.all()
+    complaints = complaintMessage.objects.order_by('-id')
     context = {
         'complaints': complaints,
     }

@@ -1,5 +1,4 @@
 {% extends "base_generic.html" %}
-
 {% block content %}
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
     <h1 class="h2">All Complaints Page</h1>
@@ -16,6 +15,7 @@
             <table class="table table-striped table-sm">
               <thead>
                 <tr>
+                  <th>Complaint ID</th>
                   <th>Member ID</th>
                   <th>Name</th>
                   <th>Phone No.</th>
@@ -27,9 +27,10 @@
               <tbody>
                 {% for message in complaints %}
                 <tr>
-                  <td>{{ message.member_id }}</td>
-                  <td>{{ message.name }}</td>
-                  <td>{{ message.phone_num }}</td>
+                  <td>{{ message.id }}</td>
+                  <td>{% firstof message.member_id "Not Member" %}</td>
+                  <td>{% firstof message.member.name message.name %}</td>
+                  <td>{% firstof message.member.phone_num message.phone_num %}</td>
                   <td>{{ message.vehicle_number }}</td>
                   <td>{{ message.complaint_date }}</td>
                   <td>
