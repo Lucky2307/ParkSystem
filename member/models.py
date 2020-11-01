@@ -8,3 +8,6 @@ class member(models.Model):
     dob = models.DateField()
     phone_num = models.CharField(max_length=15)
     address = models.CharField(max_length=200)
+
+    def __str__(self):
+        return f'{self.member_id} - {self.name}'

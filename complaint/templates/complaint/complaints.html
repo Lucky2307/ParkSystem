@@ -24,12 +24,13 @@
                 </tr>
               </thead>
               <tbody>
-                {% for message in messages %}
+                {% for message in complaints %}
                 <tr>
+                  <td>{{ message.member_id }}</td>
                   <td>{{ message.name }}</td>
-                  <td>{{ message.email }}</td>
-                  <td>{{ message.dob }}</td>
                   <td>{{ message.phone_num }}</td>
+                  <td>{{ message.vehicle_number }}</td>
+                  <td>{{ message.complaint_date }}</td>
                   <td>
                     <a href="#" class="btn btn-sm btn-primary">Inspect</a>
                   </td>
