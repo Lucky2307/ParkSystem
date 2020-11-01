@@ -11,13 +11,17 @@
 <script>
     setTimeout(function(){
     window.location.href="{% url 'index' %}";
-    }, 5000);
+    }, 3000);
 
     var seconds = 3;
     var el = document.getElementById('seconds');
 
     function incrementSeconds() {
-        seconds -= 1;
+	if (seconds == 0) {
+		seconds = 0;
+	} else {
+		seconds -= 1;
+	}
         el.innerText = seconds;
     }
     var cancel = setInterval(incrementSeconds, 1000);

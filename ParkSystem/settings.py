@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'ParkSystem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ParkSystem',
+        'NAME': 'ParkingSystemDB',
         'USER': 'sswp',
         'PASSWORD': 'sswp',
         'HOST': '127.0.0.1',
