@@ -1,9 +1,10 @@
 from django.db import models
+from member.models import member
 
 # Create your models here.
 
 class complaintMessage(models.Model):
-    member_id = models.IntegerField()
+    member_id = models.ForeignKey(member, on_delete=models.SET_NULL, null=True, blank=True)
     #Make it so that even non member can input complaint
     name = models.CharField(max_length=100)
     phone_num = models.CharField(max_length=15)
